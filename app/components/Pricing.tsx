@@ -5,10 +5,9 @@ export default function Pricing() {
   const plans = [
     {
       name: 'Free',
-      icon: '🌊',
       price: '₹0',
       period: 'forever',
-      description: 'Perfect for exploring and trying out',
+      description: 'Perfect for exploring',
       features: [
         '10 questions per day',
         'Basic DNS/INDOS guidance',
@@ -21,17 +20,16 @@ export default function Pricing() {
     },
     {
       name: 'Lite',
-      icon: '⚡',
       price: '₹99',
       period: 'per month',
-      description: 'Most popular for aspiring seafarers',
+      description: 'Most popular choice',
       features: [
         'Unlimited questions',
         'Advanced exam preparation',
         'Personalized career guidance',
         'Priority response time',
         'DGS notification alerts',
-        'Shipping company database access'
+        'Shipping company database'
       ],
       cta: 'Get Started',
       url: siteConfig.pricing.lite.purchaseUrl,
@@ -39,16 +37,15 @@ export default function Pricing() {
     },
     {
       name: 'Pro',
-      icon: '💎',
       price: '₹199',
       period: 'per month',
-      description: 'For serious career advancement',
+      description: 'For serious advancement',
       features: [
         'Everything in Lite',
         'Interview preparation',
-        'Resume review & optimization',
-        'Salary negotiation guidance',
-        '1-on-1 expert consultation (monthly)',
+        'Resume review',
+        'Salary negotiation',
+        '1-on-1 expert consultation',
         'Job placement assistance',
         'Lifetime updates'
       ],
@@ -59,19 +56,17 @@ export default function Pricing() {
   ];
 
   return (
-    <section id="pricing" className="py-20 bg-gradient-to-b from-blue-50 to-white">
+    <section id="pricing" className="py-24 bg-slate-950 relative">
       <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           {/* Section header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Simple, Transparent
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
-                Pricing for Everyone 💸
-              </span>
+              <span className="block text-gradient mt-2">Pricing for Everyone</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Start free, upgrade anytime. No hidden fees, cancel whenever you want.
+            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+              Start free, upgrade anytime. No hidden fees, cancel whenever.
             </p>
           </div>
 
@@ -80,45 +75,49 @@ export default function Pricing() {
             {plans.map((plan, index) => (
               <div
                 key={index}
-                className={`relative bg-white rounded-2xl p-8 shadow-lg border-2 transition-all duration-300 transform hover:-translate-y-2 ${
+                className={`relative glass rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 ${
                   plan.popular
-                    ? 'border-cyan-500 shadow-cyan-500/20 scale-105'
-                    : 'border-gray-200 hover:border-blue-300'
+                    ? 'scale-105 border-2 border-cyan-500'
+                    : 'hover:border-slate-600'
                 }`}
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="inline-block bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-sm font-bold px-4 py-1 rounded-full shadow-lg">
-                      ⭐ Most Popular
+                    <span className="inline-flex items-center gap-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-sm font-bold px-4 py-1 rounded-full">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      Most Popular
                     </span>
                   </div>
                 )}
 
-                <div className="text-center mb-6">
-                  <div className="text-5xl mb-3">{plan.icon}</div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                  <div className="flex items-baseline justify-center gap-1 mb-2">
-                    <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
-                    <span className="text-gray-600">/{plan.period}</span>
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                  <div className="flex items-baseline justify-center gap-2 mb-2">
+                    <span className="text-5xl font-bold text-white">{plan.price}</span>
+                    <span className="text-slate-400">/{plan.period}</span>
                   </div>
-                  <p className="text-sm text-gray-600">{plan.description}</p>
+                  <p className="text-sm text-slate-400">{plan.description}</p>
                 </div>
 
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-4 mb-8">
                   {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <span className="text-green-500 text-lg flex-shrink-0">✔</span>
-                      <span className="text-gray-700">{feature}</span>
+                    <li key={idx} className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-slate-300">{feature}</span>
                     </li>
                   ))}
                 </ul>
 
                 <Link
                   href={plan.url}
-                  className={`block text-center font-bold py-3 px-6 rounded-lg transition-all duration-300 ${
+                  className={`block text-center font-bold py-3 px-6 rounded-xl transition-all duration-300 ${
                     plan.popular
-                      ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white hover:shadow-lg hover:shadow-cyan-500/50'
-                      : 'bg-gray-900 text-white hover:bg-gray-800'
+                      ? 'bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white glow-cyan'
+                      : 'bg-slate-800 hover:bg-slate-700 text-white'
                   }`}
                 >
                   {plan.cta}
@@ -129,10 +128,13 @@ export default function Pricing() {
 
           {/* Bottom note */}
           <div className="text-center">
-            <p className="text-gray-600">
-              <span className="text-xl">🔒</span> All plans include data privacy protection and regular updates
+            <p className="text-slate-400 flex items-center justify-center gap-2">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+              All plans include data privacy protection and regular updates
             </p>
-            <p className="text-sm text-gray-500 mt-2">
+            <p className="text-sm text-slate-500 mt-2">
               Payments processed securely via Graphy
             </p>
           </div>
