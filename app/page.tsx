@@ -1,3 +1,4 @@
+'use client';
 import Hero from './components/Hero';
 import KnowledgeHub from './components/KnowledgeHub';
 import Capabilities from './components/Capabilities';
