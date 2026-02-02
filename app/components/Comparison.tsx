@@ -1,3 +1,4 @@
+'use client';
 export default function Comparison() {
   const features = [
     { name: 'Daily question limit', free: '10 questions', lite: 'Unlimited', pro: 'Unlimited' },
